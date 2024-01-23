@@ -10,19 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ClienteRenderController {
 	
-	@GetMapping(value = "/cliente-html", produces = MediaType.TEXT_HTML_VALUE)
+	@GetMapping(value = "/cliente-xml", produces = MediaType.APPLICATION_XML_VALUE)
 	public String getCliente() {
 		StringBuilder sb = new StringBuilder(); 
-		sb.append("<html>");
-		sb.append("<body>"); 
-		sb.append("	<div><h1>Cliente</h1>"); 
-		sb.append("		<ul>"); 
-		sb.append("			<li>Nombre: Rafael Benedettelli</li>");
-		sb.append("			<li>UserName: RBL</li>");
-		sb.append("		</ul>");
-		sb.append("	</div>");
-		sb.append("</body>");
-		sb.append("</html>"); 
+		sb.append("<xml>"); 
+		sb.append("<cliente>");  
+		sb.append("			<nombre>Nombre: Rafael Benedettelli</nombre>");
+		sb.append("			<userName>UserName: RBL</userName>");
+		sb.append("</cliente>"); 
+		sb.append("<xml>");  
 		
 		return sb.toString(); 
 	}
